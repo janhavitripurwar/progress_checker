@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "547532232332",
+    "firebase_url": "https://progress-checker.firebaseio.com",
+    "project_id": "progress-checker",
+    "storage_bucket": "progress-checker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547532232332:android:46b63fd035b346d9714da9",
+        "android_client_info": {
+          "package_name": "com.raghav.status_checker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547532232332-jb8cveoms2pj8m63ceddpq90h0k2d7bh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxwfuaBYcjUeZKYUUInsQD66USDqWVNgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "547532232332-jb8cveoms2pj8m63ceddpq90h0k2d7bh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

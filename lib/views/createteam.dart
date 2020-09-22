@@ -23,15 +23,15 @@ class _createTeamState extends State<createTeam> {
   uploadInfo() async{
     Map<String,String>teamAndOwnerInfo = {
       'domain' : teamNameTextEditingController.text,
-      //'ownerid' : emailTextEditingController.text
+      'ownerid' : userNameTextEditingController.text
     };
 
-    //databaseMethods.addDomainAndOwnerIdToTeams(teamAndOwnerInfo);
-    final databaseReference = Firestore.instance;
-    databaseReference.collection('Teams')
-        .document().collection(teamNameTextEditingController.text)
-        .document().collection(userNameTextEditingController.text)
-        .document().setData(teamAndOwnerInfo);// your answer missing **.document()**  before setData
+    databaseMethods.addDomainAndOwnerIdToTeams(teamAndOwnerInfo);
+//    final databaseReference = Firestore.instance;
+//    databaseReference.collection('Teams')
+//        .document().collection(teamNameTextEditingController.text)
+//        .document().collection(userNameTextEditingController.text)
+//        .document().setData(teamAndOwnerInfo);
     //TODO
 
     final ConfirmAction action = await _asyncConfirmDialog(context);
@@ -125,7 +125,7 @@ Future<ConfirmAction> _asyncConfirmDialog(BuildContext context) async {
             ),
             onPressed: () {
               print(teamNameTextEditingController.text);
-              Navigator.push(context, MaterialPageRoute(
+              Navigator.pushReplacement(context, MaterialPageRoute(
                 builder: (context) => myTeam()
               ));
             },

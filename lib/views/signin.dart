@@ -70,11 +70,18 @@ class _SignInState extends State<SignIn> {
                   child: Column(
                     children: <Widget>[
                       TextFormField(
+                        validator: (val){
+                          return RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                              .hasMatch(val)? null : "Please provide valid email id";
+                        },
                         controller: emailTextEditingController,
                         style: simpleTextStyle(),
                         decoration: textFieldInputDecoration('email'),
                       ),
                       TextFormField(
+                          validator: (val){
+                            return val.length > 6 ? null :"Password length should be greater than 6";
+                          },
                           obscureText: true,
                           controller: passwordTextEditingController,
                           style: simpleTextStyle(),
@@ -116,7 +123,7 @@ class _SignInState extends State<SignIn> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("Dont't have an account? ", style: mediumTextStyle()),
+                    Text("Don't have an account? ", style: mediumTextStyle()),
                     GestureDetector(
                       onTap: (){
                         widget.toggle();

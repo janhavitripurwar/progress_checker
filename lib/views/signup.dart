@@ -80,7 +80,7 @@ class _SignUpState extends State<SignUp> {
                       TextFormField(
                         validator: (val){
                           return RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                              .hasMatch(val)? null : "Please povide valid email id";
+                              .hasMatch(val)? null : "Please provide valid email id";
                         },
                         controller: emailTextEditingController,
                         style: simpleTextStyle(),

@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DatabaseMethods {
-
   //signin signup
   getUserByUsername(String username) async {
     return await Firestore.instance.collection("users")
@@ -37,9 +36,20 @@ class DatabaseMethods {
         .where('ownerid', isEqualTo: memberName)
         .getDocuments();
   }
+
   getTeamNames(String teamId) async {
     return await Firestore.instance.collection('Teams')
         .document(teamId)
         .get();
+  }
+
+
+  Future<void> updateteamusertable(String teamname) async {
+    return await Firestore.instance.collection('Users')
+        .document('user1')
+        .setData({
+      'team': teamname,
+      'username': "yeloo"
+    });
   }
 }

@@ -50,16 +50,18 @@ class DatabaseMethods {
         .get();
   }
 
-  Future<void> updateteamusertable(String teamname) async {
+  Future<void> updateusertable(String teamname, String name) async {
     return await Firestore.instance
         .collection('Users')
         .document(uid)
-        .setData({'team': teamname, 'username': "yeloo"});
+        .setData({'team': teamname, 'username': name});
   }
 
   Userdata _userdatafromsnapshot(DocumentSnapshot snapshot) {
     return Userdata(
-        username: snapshot.data['username'], team: snapshot.data['team']);
+        username: snapshot.data['username'],
+        team: snapshot.data['team']
+    );
   }
 
   Stream<Userdata> get userdata {
@@ -69,4 +71,12 @@ class DatabaseMethods {
         .snapshots()
         .map(_userdatafromsnapshot);
   }
+
+  Future<void> updateTeamtable(String team, int a) async {
+    return await Firestore.instance.collection('Team').document(team).setData({
+      'member $a': uid
+    });
+  }
+
+
 }

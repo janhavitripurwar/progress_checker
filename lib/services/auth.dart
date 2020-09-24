@@ -24,7 +24,7 @@ class AuthMethods{
           email: email, password: password);
       FirebaseUser firebaseUser = result.user;
       await DatabaseMethods(uid: firebaseUser.uid)
-          .updateteamusertable('team 1');
+          .updateusertable('team 1', email);
       return _userFromFirebaseUser(firebaseUser);
     } catch (e) {
       print(e.toString());
@@ -38,7 +38,7 @@ class AuthMethods{
           email: email, password: password);
       FirebaseUser firebaseUser = result.user;
       await DatabaseMethods(uid: firebaseUser.uid)
-          .updateteamusertable('team 1');
+          .updateusertable('team1', email);
       return _userFromFirebaseUser(firebaseUser);
     } catch (e) {
       print(e.toString());

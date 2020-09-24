@@ -10,3 +10,9 @@ class Userdata {
 
   Userdata({this.team, this.username});
 }
+
+class userdata {
+  String uid;
+
+  userdata({this.uid});
+}

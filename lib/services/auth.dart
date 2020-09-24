@@ -1,49 +1,65 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:status_checker/modal/user.dart';
+import 'package:status_checker/services/database.dart';
 
 class AuthMethods{
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  User _userFromFirebaseUser(FirebaseUser user){
-    return user != null ? User(userId: user.uid):null;
+  //create object based on firebase
 
+  User _userFromFirebaseUser(FirebaseUser user) {
+    return user != null ? User(uid: user.uid) : null;
   }
 
-  Future signInWithEmailAndPassword(String email, String password) async{
-    try{
+  //auth change stream
+  Stream<User> get user {
+    return _auth.onAuthStateChanged.map(_userFromFirebaseUser);
+  }
+
+  //signin with email
+  Future signInWithEmailAndPassword(String email, String password) async {
+    try {
       AuthResult result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser firebaseUser = result.user;
+      await DatabaseMethods(uid: firebaseUser.uid)
+          .updateteamusertable('team 1');
       return _userFromFirebaseUser(firebaseUser);
-    }catch(e){
+    } catch (e) {
       print(e.toString());
     }
   }
 
-  Future signUpWithEmailAndPassword(String email, String password)async{
-    try{
+  //register with email
+  Future signUpWithEmailAndPassword(String email, String password) async {
+    try {
       AuthResult result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser firebaseUser = result.user;
+      await DatabaseMethods(uid: firebaseUser.uid)
+          .updateteamusertable('team 1');
       return _userFromFirebaseUser(firebaseUser);
-    }catch(e){
+    } catch (e) {
       print(e.toString());
     }
   }
 
-  Future resetPass(String email) async{
-    try{
+  //reset password
+
+  Future resetPass(String email) async {
+    try {
       return await _auth.sendPasswordResetEmail(email: email);
-    }catch(e){
+    } catch (e) {
       print(e.toString());
     }
   }
 
-  Future signOut()async{
-    try{
+  //signout
+  Future signOut() async {
+    try {
       return await _auth.signOut();
-    }catch(e){
+    } catch (e) {
       print(e.toString());
     }
   }

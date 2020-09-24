@@ -126,7 +126,7 @@ Future<ConfirmAction> _asyncConfirmDialog(BuildContext context) async {
             onPressed: () {
               print(teamNameTextEditingController.text);
               Navigator.pushReplacement(context, MaterialPageRoute(
-                builder: (context) => myTeam()
+                builder: (context) => myTeamList()
               ));
             },
           ),

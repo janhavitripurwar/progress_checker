@@ -23,9 +23,8 @@ class option extends StatelessWidget {
             GestureDetector(
               onTap: (){
                 authMethods.signOut();
-                Navigator.pushReplacement(context, MaterialPageRoute(
-                  builder: (context) => Authenticate()
-                ));
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => Authenticate()));
               },
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 16),
@@ -35,7 +34,7 @@ class option extends StatelessWidget {
           ],
         ),
         body: MyStatelessWidget(),
-        backgroundColor: Color(0xff1F1F1F),
+        backgroundColor: Colors.white,
       ),
       debugShowCheckedModeBanner: false,
     );
@@ -55,11 +54,12 @@ class MyStatelessWidget extends StatelessWidget {
           RaisedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(
-                builder: (context) => createTeam()
+                  builder: (context) => createTeam()
               ));
             },
-            child: const Text('Create Team',style: TextStyle(fontSize: 30)),
-              shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+            child: const Text('Create Team', style: TextStyle(fontSize: 30,)),
+            shape: RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(30.0)),
           ),
           const SizedBox(height: 40),
           RaisedButton(

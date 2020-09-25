@@ -44,6 +44,7 @@ class AuthMethods{
       FirebaseUser firebaseUser = result.user;
       await DatabaseMethods(uid: firebaseUser.uid)
           .updateusertable('team1', email);
+      DatabaseMethods.id=firebaseUser.uid;
       return _userFromFirebaseUser(firebaseUser);
     } catch (e) {
       print(e.toString());

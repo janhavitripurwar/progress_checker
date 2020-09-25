@@ -8,6 +8,7 @@ import 'package:status_checker/widgets/widget.dart';
 import 'package:status_checker/services/auth.dart';
 
 import '../services/database.dart';
+import 'myteams.dart';
 
 
 class option extends StatelessWidget {
@@ -80,7 +81,7 @@ class MyStatelessWidget extends StatelessWidget {
           RaisedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(
-                builder: (context) => myTeam()
+                builder: (context) => myTeamList()
               ));
             },
               child:

@@ -61,7 +61,7 @@ class _myTeamState extends State<myTeam> {
                return ListTile(
                  title: Text(snapshot.data[index].data["team"]),
                  onTap: () {
-                   //TODO
+                   //navigate to members.dart
                    Navigator.pushReplacement(context, MaterialPageRoute(
                      builder: (context) => createTeam()
                    ));

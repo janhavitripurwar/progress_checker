@@ -22,60 +22,101 @@ class _myTeamListState extends State<myTeamList> {
   }
 }
 
-
-class myTeam extends StatefulWidget {
-  @override
-  _myTeamState createState() => _myTeamState();
-}
-
-class _myTeamState extends State<myTeam> {
+class myTeam extends StatelessWidget {
 
   Future _data;
   Future getPosts() async{
     var firestore = Firestore.instance;
-     QuerySnapshot qn = await firestore.collection("Users").getDocuments();
-     return qn.documents;
+    QuerySnapshot qn = await firestore.collection("Users").getDocuments();
+    return qn.documents;
   }
-
-  @override
-  void initState() {
-    super.initState();
-    _data=getPosts();
-  }
+//
+//  @override
+//  void initState() {
+//   // super.initState();
+//    _data=getPosts();
+//  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: FutureBuilder(
-          future: _data,
+          future: getPosts(),
           builder: (_,snapshot){
-        if(snapshot.connectionState == ConnectionState.waiting){
-          return Center(
-          child:SpinKitChasingDots(
-            color: Colors.blue,
-            size: 50.0,
-          ),
-          );
-      }else {
+            if(snapshot.connectionState == ConnectionState.waiting){
+              return Center(
+                child:SpinKitChasingDots(
+                  color: Colors.blue,
+                  size: 50.0,
+                ),
+              );
+            }else {
 
-         return ListView.builder(
-             itemCount: snapshot.data.length,
-             itemBuilder: (_,index){
+              return ListView.builder(
+                  itemCount: snapshot.data.length,
+                  itemBuilder: (_,index){
 
-               return ListTile(
-                 title: Text(snapshot.data[index].data["team"]),
-                 onTap: () {
-                   //navigate to members.dart
-                   Navigator.pushReplacement(context, MaterialPageRoute(
-                     builder: (context) => createTeam()
-                   ));
-                 }
-               );
+                    return ListTile(
+                        title: Text(snapshot.data[index].data["team"]),
+                        onTap: () {
+                          //navigate to members.dart
+                          Navigator.pushReplacement(context, MaterialPageRoute(
+                              builder: (context) => createTeam()
+                          ));
+                        }
+                    );
 
-      });
+                  });
 
-      }
-      }),
+            }
+          }),
     );
   }
 }
+
+
+
+//class myTeam extends StatefulWidget {
+//  @override
+//  _myTeamState createState() => _myTeamState();
+//}
+//
+//class _myTeamState extends State<myTeam> {
+//
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    return Container(
+//      child: FutureBuilder(
+//          future: _data,
+//          builder: (_,snapshot){
+//        if(snapshot.connectionState == ConnectionState.waiting){
+//          return Center(
+//          child:SpinKitChasingDots(
+//            color: Colors.blue,
+//            size: 50.0,
+//          ),
+//          );
+//      }else {
+//
+//         return ListView.builder(
+//             itemCount: snapshot.data.length,
+//             itemBuilder: (_,index){
+//
+//               return ListTile(
+//                 title: Text(snapshot.data[index].data["team"]),
+//                 onTap: () {
+//                   //navigate to members.dart
+//                   Navigator.pushReplacement(context, MaterialPageRoute(
+//                     builder: (context) => createTeam()
+//                   ));
+//                 }
+//               );
+//
+//      });
+//
+//      }
+//      }),
+//    );
+//  }
+//}

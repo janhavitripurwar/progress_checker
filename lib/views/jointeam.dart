@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:status_checker/services/database.dart';
 import 'package:status_checker/views/myteams.dart';
 import 'package:status_checker/widgets/widget.dart';
-import 'package:status_checker/views/signin.dart';
+import 'package:status_checker/views/signup.dart';
 
 class joinTeam extends StatefulWidget {
   @override
@@ -11,7 +11,21 @@ class joinTeam extends StatefulWidget {
 }
 
 class _joinTeamState extends State<joinTeam> {
+  TextEditingController usernameTextEditingController = new TextEditingController();
   TextEditingController joinTeamTextEditingController = new TextEditingController();
+  DatabaseMethods databaseMethods = new DatabaseMethods();
+
+
+  pplArray() async{
+    DocumentReference docRef = Firestore.instance.collection('Team').document(joinTeamTextEditingController.text);
+    DocumentSnapshot doc = await docRef.get();
+    List ppl = doc.data["ppl"];
+    docRef.updateData(
+        {
+          'ppl' : FieldValue.arrayUnion([DatabaseMethods.id])
+        }
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +38,25 @@ class _joinTeamState extends State<joinTeam> {
           children: <Widget>[
             Container(
               width: 300.0,
-              child: TextFormField(
-                controller: joinTeamTextEditingController,
-                decoration: textFieldInputDecoration('Team Name'),
-                style: simpleTextStyle(),
+              child: Column(
+                children: [
+                  TextFormField(
+                    controller: usernameTextEditingController,
+                    decoration: textFieldInputDecoration('username'),
+                    style: simpleTextStyle(),
+                  ),
+                  TextFormField(
+                    controller: joinTeamTextEditingController,
+                    decoration: textFieldInputDecoration('Team Name'),
+                    style: simpleTextStyle(),
+                  ),
+                ],
               ),
             ),
             SizedBox(height: 75,),
             RaisedButton(
               onPressed: () async {
-               // uploadInfo();
-                //TODO
+               pplArray();
                 final ConfirmAction action = await _asyncConfirmDialog(context);
                 print("Confirm Action $action" );
               },

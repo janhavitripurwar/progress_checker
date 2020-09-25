@@ -25,14 +25,14 @@ class _createTeamState extends State<createTeam> {
 
 
   uploadInfo() async{
-    Map<String,String>teamAndOwnerInfo = {
-      'domain' : teamNameTextEditingController.text,
-      'ownerid' : userNameTextEditingController.text
-    };
+//    Map<String,String>teamAndOwnerInfo = {
+//      'domain' : teamNameTextEditingController.text,
+//      'ownerid' : userNameTextEditingController.text
+//    };
     _teamname=teamNameTextEditingController.text;
     _username=userNameTextEditingController.text;
 
-    databaseMethods.addDomainAndOwnerIdToTeams(teamAndOwnerInfo);
+    //databaseMethods.addDomainAndOwnerIdToTeams(teamAndOwnerInfo);
 //    final databaseReference = Firestore.instance;
 //    databaseReference.collection('Teams')
 //        .document().collection(teamNameTextEditingController.text)

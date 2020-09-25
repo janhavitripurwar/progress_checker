@@ -80,7 +80,7 @@ class MyStatelessWidget extends StatelessWidget {
           RaisedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(
-                builder: (context) => myTeam()
+                builder: (context) => myTeamList()
               ));
             },
               child:

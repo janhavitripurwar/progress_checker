@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "35608559882",
-    "firebase_url": "https://hackathon-9f026.firebaseio.com",
-    "project_id": "hackathon-9f026",
-    "storage_bucket": "hackathon-9f026.appspot.com"
+    "project_number": "24621589828",
+    "firebase_url": "https://checker-8c360.firebaseio.com",
+    "project_id": "checker-8c360",
+    "storage_bucket": "checker-8c360.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:35608559882:android:03a7d322f80b59fa2b7af3",
+        "mobilesdk_app_id": "1:24621589828:android:86b9e0ffbfc1808f892311",
         "android_client_info": {
           "package_name": "com.android.status_checker"
         }
       },
       "oauth_client": [
         {
-          "client_id": "35608559882-vntupeq2ph95epu7gocl5scq4c5r74mv.apps.googleusercontent.com",
+          "client_id": "24621589828-pm0733k48r0kk5ino17g58mrdeu6uj51.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBysCtQ_wgGBIZbT7F4KbF6ATK_g2wgaRM"
+          "current_key": "AIzaSyD5O_JTpMs2jRsAXDpzMc7mW1om6IwJzkk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "35608559882-vntupeq2ph95epu7gocl5scq4c5r74mv.apps.googleusercontent.com",
+              "client_id": "24621589828-pm0733k48r0kk5ino17g58mrdeu6uj51.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

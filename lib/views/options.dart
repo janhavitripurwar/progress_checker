@@ -7,6 +7,8 @@ import 'package:status_checker/views/myteams.dart';
 import 'package:status_checker/widgets/widget.dart';
 import 'package:status_checker/services/auth.dart';
 
+import '../services/database.dart';
+
 
 class option extends StatelessWidget {
 
@@ -15,6 +17,7 @@ class option extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(DatabaseMethods.id);
     return MaterialApp(
       title: _title,
       home: Scaffold(
@@ -34,6 +37,7 @@ class option extends StatelessWidget {
           ],
         ),
         body: MyStatelessWidget(),
+
         backgroundColor: Colors.white,
       ),
       debugShowCheckedModeBanner: false,
@@ -47,6 +51,7 @@ class MyStatelessWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(DatabaseMethods.id);
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,

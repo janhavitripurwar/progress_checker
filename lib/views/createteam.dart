@@ -4,6 +4,10 @@ import 'package:status_checker/services/database.dart';
 import 'package:status_checker/views/myteams.dart';
 import 'package:status_checker/widgets/widget.dart';
 
+import '../services/database.dart';
+import '../services/database.dart';
+import '../services/database.dart';
+
 class createTeam extends StatefulWidget {
   @override
   _createTeamState createState() => _createTeamState();
@@ -25,6 +29,8 @@ class _createTeamState extends State<createTeam> {
       'domain' : teamNameTextEditingController.text,
       'ownerid' : userNameTextEditingController.text
     };
+    _teamname=teamNameTextEditingController.text;
+    _username=userNameTextEditingController.text;
 
     databaseMethods.addDomainAndOwnerIdToTeams(teamAndOwnerInfo);
 //    final databaseReference = Firestore.instance;
@@ -38,6 +44,9 @@ class _createTeamState extends State<createTeam> {
     print("Confirm Action $action" );
   }
 
+
+  String _teamname;
+  String _username;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,6 +77,8 @@ class _createTeamState extends State<createTeam> {
             RaisedButton(
               onPressed: () async {
                 uploadInfo();
+                DatabaseMethods(uid: DatabaseMethods.id).updateusertable(_teamname, _username);
+                DatabaseMethods(uid: DatabaseMethods.id).updateTeamtable(_teamname);
               },
               child: const Text(
                 "Create Team",

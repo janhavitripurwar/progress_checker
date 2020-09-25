@@ -6,6 +6,7 @@ class DatabaseMethods {
 
   DatabaseMethods({this.uid}) {}
 
+  static String id=null;
   //signin signup
   getUserByUsername(String username) async {
     return await Firestore.instance
@@ -72,9 +73,9 @@ class DatabaseMethods {
         .map(_userdatafromsnapshot);
   }
 
-  Future<void> updateTeamtable(String team, int a) async {
+  Future<void> updateTeamtable(String team) async {
     return await Firestore.instance.collection('Team').document(team).setData({
-      'member $a': uid
+      'member': uid
     });
   }
 

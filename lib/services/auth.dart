@@ -2,6 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:status_checker/modal/user.dart';
 import 'package:status_checker/services/database.dart';
 
+import 'database.dart';
+import 'database.dart';
+
 class AuthMethods{
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -25,6 +28,8 @@ class AuthMethods{
       FirebaseUser firebaseUser = result.user;
       await DatabaseMethods(uid: firebaseUser.uid)
           .updateusertable('team 1', email);
+      DatabaseMethods.id=firebaseUser.uid;
+      print(DatabaseMethods.id);
       return _userFromFirebaseUser(firebaseUser);
     } catch (e) {
       print(e.toString());

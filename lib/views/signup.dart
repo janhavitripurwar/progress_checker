@@ -53,6 +53,8 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+            backgroundColor: Colors.teal,
+
       appBar: appBarMain(context),
       body: isLoading ? Container(
         child: Center(child: CircularProgressIndicator()),

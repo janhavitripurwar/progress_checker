@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:status_checker/views/createteam.dart';
 import 'package:status_checker/views/memberslist.dart';
 import 'package:status_checker/widgets/widget.dart';
@@ -50,7 +51,10 @@ class _myTeamState extends State<myTeam> {
           builder: (_,snapshot){
         if(snapshot.connectionState == ConnectionState.waiting){
           return Center(
-          child: Text("Loading..."),
+          child:SpinKitChasingDots(
+            color: Colors.blue,
+            size: 50.0,
+          ),
           );
       }else {
 

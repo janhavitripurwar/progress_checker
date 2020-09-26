@@ -62,7 +62,7 @@ String _teamname;
                 _username=usernameTextEditingController.text;
                 print(_teamname);
                 DatabaseMethods(uid: DatabaseMethods.id).updateusertable(_teamname, _username);
-                DatabaseMethods(uid: DatabaseMethods.id).updateTeamtable(_teamname);
+
                pplArray();
                 final ConfirmAction action = await _asyncConfirmDialog(context);
                 print("Confirm Action $action" );

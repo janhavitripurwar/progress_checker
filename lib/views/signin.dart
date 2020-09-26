@@ -56,7 +56,10 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.teal,
-      appBar: appBarMain(context),
+      appBar:
+          AppBar(
+            title: Text("Sign In"),
+          ),
       body: SingleChildScrollView(
         child: Container(
           height: MediaQuery.of(context).size.height-50,
@@ -76,17 +79,22 @@ class _SignInState extends State<SignIn> {
                               .hasMatch(val)? null : "Please provide valid email id";
                         },
                         controller: emailTextEditingController,
-                        style: simpleTextStyle(),
-                        decoration: textFieldInputDecoration('email'),
+                        style: TextStyle(color: Colors.black),
+                        decoration:  InputDecoration(hintText: 'email',fillColor: Colors.white70,filled: true,
+                            enabledBorder:OutlineInputBorder(borderSide: BorderSide(color: Colors.red ,
+                                width: 2.0)) ),
                       ),
+                      SizedBox(height: 20.0,),
                       TextFormField(
                           validator: (val){
                             return val.length > 6 ? null :"Password length should be greater than 6";
                           },
                           obscureText: true,
                           controller: passwordTextEditingController,
-                          style: simpleTextStyle(),
-                          decoration: textFieldInputDecoration('password')
+                          style: TextStyle(color: Colors.black),
+                          decoration:  InputDecoration(hintText: 'password',fillColor: Colors.white70,filled: true,
+                              enabledBorder:OutlineInputBorder(borderSide: BorderSide(color: Colors.red ,
+                                  width: 2.0)) ),
                       ),
                     ],
                   ),

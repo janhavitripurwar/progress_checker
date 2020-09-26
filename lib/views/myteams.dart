@@ -83,7 +83,7 @@ String t;
                       );
                     }
                     else{
-                      return loading();
+                      return SizedBox(height: 1.0,);
                     }
                   });
 

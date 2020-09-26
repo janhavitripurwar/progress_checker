@@ -55,7 +55,9 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
             backgroundColor: Colors.teal,
 
-      appBar: appBarMain(context),
+      appBar: AppBar(
+        title: Text("Register"),
+      ),
       body: isLoading ? Container(
         child: Center(child: CircularProgressIndicator()),
       ) : SingleChildScrollView(

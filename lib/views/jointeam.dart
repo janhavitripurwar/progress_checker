@@ -26,7 +26,8 @@ class _joinTeamState extends State<joinTeam> {
         }
     );
   }
-
+String _teamname;
+  String _username;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -59,6 +60,8 @@ class _joinTeamState extends State<joinTeam> {
                pplArray();
                 final ConfirmAction action = await _asyncConfirmDialog(context);
                 print("Confirm Action $action" );
+               DatabaseMethods(uid: DatabaseMethods.id).updateusertable(_teamname, _username);
+               DatabaseMethods(uid: DatabaseMethods.id).updateTeamtable(_teamname);
               },
               child: const Text(
                 "Join Team",
@@ -116,7 +119,7 @@ Future<ConfirmAction> _asyncConfirmDialog(BuildContext context) async {
             ),
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => myTeam()
+                  builder: (context) => myTeamList()
               ));
             },
           ),

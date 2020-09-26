@@ -69,15 +69,16 @@ String t;
                             title: Text(snapshot.data[index].data["team"],
                             ),
                             onTap: () {
-                              //navigate to members.dart
-                              Navigator.pushReplacement(context,
-                                  MaterialPageRoute(
-                                      builder: (context) => memlist()
-                                  ));
                               DatabaseMethods.team = snapshot.data[index]
                                   .data["team"];
                               t = DatabaseMethods.team;
                               print("team: $t");
+                              //navigate to members.dart
+                              Navigator.push(context,
+                                  MaterialPageRoute(
+                                      builder: (context) => memlist()
+                                  ));
+
                             }
                         ),
                       );

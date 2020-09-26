@@ -44,9 +44,14 @@ class _memlistState extends State<memlist> {
 
                       if(snapshot.data[index].data["team"]==DatabaseMethods.team) {
                         return ListTile(
+                          leading: CircleAvatar(
+                            foregroundColor: Colors.red,),
                           title: Text(snapshot.data[index].data["username"],),
 
                         );
+                      }
+                      else{
+                        return SizedBox(height: 1.0,);
                       }
 
                     });

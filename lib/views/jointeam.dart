@@ -57,11 +57,16 @@ String _teamname;
             SizedBox(height: 75,),
             RaisedButton(
               onPressed: () async {
+
+                _teamname=joinTeamTextEditingController.text;
+                _username=usernameTextEditingController.text;
+                print(_teamname);
+                DatabaseMethods(uid: DatabaseMethods.id).updateusertable(_teamname, _username);
+                DatabaseMethods(uid: DatabaseMethods.id).updateTeamtable(_teamname);
                pplArray();
                 final ConfirmAction action = await _asyncConfirmDialog(context);
                 print("Confirm Action $action" );
-               DatabaseMethods(uid: DatabaseMethods.id).updateusertable(_teamname, _username);
-               DatabaseMethods(uid: DatabaseMethods.id).updateTeamtable(_teamname);
+
               },
               child: const Text(
                 "Join Team",

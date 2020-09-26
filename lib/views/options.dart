@@ -22,8 +22,10 @@ class option extends StatelessWidget {
       title: _title,
       home: Scaffold(
         appBar: AppBar(
+          title: Text('Options'),
           actions: <Widget>[
             GestureDetector(
+
               onTap: (){
                 authMethods.signOut();
                 Navigator.pushReplacement(context,
@@ -56,37 +58,47 @@ class MyStatelessWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          RaisedButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => createTeam()
-              ));
-            },
-            child: const Text('Create Team', style: TextStyle(fontSize: 30,)),
-            shape: RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(30.0)),
+          ButtonTheme(
+            minWidth: 400.0,
+            height: 200.0,
+            child: RaisedButton(
+              color: Colors.blue,
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => createTeam()
+                ));
+              },
+              child: Text('Create Team', style: TextStyle(fontSize: 40.0,color: Colors.white,fontWeight: FontWeight.w900),),
+              ),
           ),
-          const SizedBox(height: 40),
-          RaisedButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => joinTeam()
-              ));
-            },
-            child: const Text('Join Team', style: TextStyle(fontSize: 30)),
-              shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0))
-          ),
-          const SizedBox(height: 40),
-          RaisedButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) => myTeamList()
-              ));
-            },
-              child:
-              const Text('My Teams', style: TextStyle(fontSize: 30)),
-              shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0))
+
+          ButtonTheme(
+            minWidth: 400.0,
+            height: 200.0,
+            child: RaisedButton(
+                color: Colors.blue,
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => joinTeam()
+                ));
+              },
+              child: const Text('Join Team', style: TextStyle(fontSize: 40.0,color: Colors.white,fontWeight: FontWeight.w900)),
             ),
+          ),
+          ButtonTheme(
+            minWidth: 400.0,
+            height: 250.0,
+            child: RaisedButton(
+              color: Colors.blue,
+              child: Text('My Teams', style: TextStyle(fontSize: 40.0,color: Colors.white,fontWeight: FontWeight.w900)),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => myTeamList()
+                ));
+              },
+
+              ),
+          ),
         ],
       ),
     );

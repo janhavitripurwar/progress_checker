@@ -16,3 +16,9 @@ class userdata {
 
   userdata({this.uid});
 }
+
+class teamname{
+  final String team;
+
+  teamname({this.team});
+}

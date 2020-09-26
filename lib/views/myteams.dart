@@ -16,7 +16,11 @@ class _myTeamListState extends State<myTeamList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarMain(context),
+      appBar: AppBar(
+        title: Text('My Teams'),
+        elevation: 5.0,
+        backgroundColor: Colors.teal,
+      ),
       body: myTeam(),
     );
   }
@@ -24,8 +28,8 @@ class _myTeamListState extends State<myTeamList> {
 
 class myTeam extends StatelessWidget {
 
-  Future _data;
   Future getPosts() async{
+    print(DatabaseMethods.teamname);
     var firestore = Firestore.instance;
     QuerySnapshot qn = await firestore.collection("Users").getDocuments();
     return qn.documents;
@@ -57,7 +61,8 @@ class myTeam extends StatelessWidget {
                   itemBuilder: (_,index){
 
                     return ListTile(
-                        title: Text(snapshot.data[index].data["team"]),
+                        title: Text(snapshot.data[index].data["team"],
+                          ),
                         onTap: () {
                           //navigate to members.dart
                           Navigator.pushReplacement(context, MaterialPageRoute(

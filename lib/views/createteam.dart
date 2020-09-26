@@ -31,6 +31,7 @@ class _createTeamState extends State<createTeam> {
 //    };
     _teamname=teamNameTextEditingController.text;
     _username=userNameTextEditingController.text;
+    DatabaseMethods.teamname=teamNameTextEditingController.text;
 
     //databaseMethods.addDomainAndOwnerIdToTeams(teamAndOwnerInfo);
 //    final databaseReference = Firestore.instance;

@@ -7,6 +7,8 @@ class DatabaseMethods {
   DatabaseMethods({this.uid}) {}
 
   static String id=null;
+  static String teamname=null;
+
   //signin signup
   getUserByUsername(String username) async {
     return await Firestore.instance

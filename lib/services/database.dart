@@ -8,6 +8,7 @@ class DatabaseMethods {
 
   static String id=null;
   static String teamname=null;
+  static String team=null;
 
   //signin signup
   getUserByUsername(String username) async {
@@ -57,7 +58,7 @@ class DatabaseMethods {
     return await Firestore.instance
         .collection('Users')
         .document(uid)
-        .setData({'team': teamname, 'username': name});
+        .setData({'team': teamname, 'username': name,'uid':uid});
   }
 
   Userdata _userdatafromsnapshot(DocumentSnapshot snapshot) {

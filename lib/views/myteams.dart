@@ -2,7 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:status_checker/loading.dart';
 import 'package:status_checker/views/createteam.dart';
+import 'package:status_checker/views/listmemebers.dart';
 import 'package:status_checker/views/memberslist.dart';
 import 'package:status_checker/widgets/widget.dart';
 import 'package:status_checker/services/database.dart';
@@ -40,7 +42,7 @@ class myTeam extends StatelessWidget {
 //   // super.initState();
 //    _data=getPosts();
 //  }
-
+String t;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -59,18 +61,30 @@ class myTeam extends StatelessWidget {
               return ListView.builder(
                   itemCount: snapshot.data.length,
                   itemBuilder: (_,index){
-
-                    return ListTile(
-                        title: Text(snapshot.data[index].data["team"],
-                          ),
-                        onTap: () {
-                          //navigate to members.dart
-                          Navigator.pushReplacement(context, MaterialPageRoute(
-                              builder: (context) => createTeam()
-                          ));
-                        }
-                    );
-
+                    if (snapshot.data[index].data["uid"]== DatabaseMethods.id) {
+                      return Center(
+                        child: ListTile(
+                            leading: CircleAvatar(
+                              foregroundColor: Colors.blue,),
+                            title: Text(snapshot.data[index].data["team"],
+                            ),
+                            onTap: () {
+                              //navigate to members.dart
+                              Navigator.pushReplacement(context,
+                                  MaterialPageRoute(
+                                      builder: (context) => memlist()
+                                  ));
+                              DatabaseMethods.team = snapshot.data[index]
+                                  .data["team"];
+                              t = DatabaseMethods.team;
+                              print("team: $t");
+                            }
+                        ),
+                      );
+                    }
+                    else{
+                      return loading();
+                    }
                   });
 
             }

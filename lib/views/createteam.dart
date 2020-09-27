@@ -78,7 +78,8 @@ class _createTeamState extends State<createTeam> {
             RaisedButton(
               onPressed: () async {
                 uploadInfo();
-                DatabaseMethods(uid: DatabaseMethods.id).updateusertable(_teamname, _username);
+                DatabaseMethods.uname=_username;
+                DatabaseMethods(uid: DatabaseMethods.id).updateusertable(_teamname, _username,"2020-01-01 00:00:00.000");
                 DatabaseMethods(uid: DatabaseMethods.id).updateTeamtable(_teamname);
               },
               child: const Text(

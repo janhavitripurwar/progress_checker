@@ -27,7 +27,8 @@ class AuthMethods{
           email: email, password: password);
       FirebaseUser firebaseUser = result.user;
       await DatabaseMethods(uid: firebaseUser.uid)
-          .updateusertable('team 1', email);
+          .updateusertable('team 1', email,"2020-01-01 00:00:00.000");
+      DatabaseMethods.uname=email;
       DatabaseMethods.id=firebaseUser.uid;
       print(DatabaseMethods.id);
       return _userFromFirebaseUser(firebaseUser);
@@ -43,7 +44,8 @@ class AuthMethods{
           email: email, password: password);
       FirebaseUser firebaseUser = result.user;
       await DatabaseMethods(uid: firebaseUser.uid)
-          .updateusertable('team1', email);
+          .updateusertable('team1', email,"2020-01-01 00:00:00.000");
+      DatabaseMethods.uname=email;
       DatabaseMethods.id=firebaseUser.uid;
       return _userFromFirebaseUser(firebaseUser);
     } catch (e) {

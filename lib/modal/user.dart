@@ -8,8 +8,9 @@ class Userdata {
   final String username;
   final String team;
   final String uid;
+  final String date;
 
-  Userdata({this.team, this.username,this.uid});
+  Userdata({this.team, this.username,this.uid,this.date});
 }
 
 class userdata {

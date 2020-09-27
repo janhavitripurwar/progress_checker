@@ -61,7 +61,8 @@ String _teamname;
                 _teamname=joinTeamTextEditingController.text;
                 _username=usernameTextEditingController.text;
                 print(_teamname);
-                DatabaseMethods(uid: DatabaseMethods.id).updateusertable(_teamname, _username);
+                DatabaseMethods.uname=_username;
+                DatabaseMethods(uid: DatabaseMethods.id).updateusertable(_teamname, _username,"2020-01-01 00:00:00.000");
 
                pplArray();
                 final ConfirmAction action = await _asyncConfirmDialog(context);

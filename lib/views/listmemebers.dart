@@ -48,8 +48,9 @@ class _memlistState extends State<memlist> {
 
                       if(snapshot.data[index].data["team"]==DatabaseMethods.team) {
                         return ListTile(
-                          leading: CircleAvatar(
-                            foregroundColor: Colors.red,),
+                          leading:
+                          CircleAvatar(
+                            backgroundColor: Colors.red,),
                           title: Text(snapshot.data[index].data["username"],),
 
                         );
@@ -69,12 +70,13 @@ class _memlistState extends State<memlist> {
               context: context,
               initialDate: _dateTime == null? DateTime.now() : _dateTime,
               firstDate: DateTime(2020),
-              lastDate: DateTime(2023)
+              lastDate: DateTime(2030)
           ).then((date){
             setState(() {
               _dateTime = date;
               print(_dateTime==null ?"nothing has been picked" : _dateTime.toString());
               print(dateToday.toString());
+              DatabaseMethods(uid: DatabaseMethods.id).updateusertable(DatabaseMethods.team,DatabaseMethods.uname,_dateTime.toString());
             });
           });
         },

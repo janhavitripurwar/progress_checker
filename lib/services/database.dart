@@ -9,6 +9,7 @@ class DatabaseMethods {
   static String id=null;
   static String teamname=null;
   static String team=null;
+  static String uname=null;
 
   //signin signup
   getUserByUsername(String username) async {
@@ -54,13 +55,20 @@ class DatabaseMethods {
         .get();
   }
 
-  Future<void> updateusertable(String teamname, String name) async {
+  Future<void> updateusertable(String teamname, String name,String date) async {
     return await Firestore.instance
         .collection('Users')
         .document(uid)
-        .setData({'team': teamname, 'username': name,'uid':uid});
-  }
+        .setData({'team': teamname, 'username': name,'uid':uid,'date':date});
 
+  }
+  Future<void> updateusertable2(String date) async {
+    return await Firestore.instance
+        .collection('Users')
+        .document(uid)
+        .setData({'date':date,'uid':uid});
+
+  }
   Userdata _userdatafromsnapshot(DocumentSnapshot snapshot) {
     return Userdata(
         username: snapshot.data['username'],

@@ -11,6 +11,7 @@ class _memlistState extends State<memlist> {
 
   DateTime _dateTime;
   DateTime dateToday = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day) ;
+  int deadline=0;
 
   @override
   Future getPosts() async{
@@ -47,13 +48,25 @@ class _memlistState extends State<memlist> {
                       print(snapshot.data[index].data["team"]);
 
                       if(snapshot.data[index].data["team"]==DatabaseMethods.team) {
-                        return ListTile(
-                          leading:
-                          CircleAvatar(
-                            backgroundColor: Colors.red,),
-                          title: Text(snapshot.data[index].data["username"],),
+                        if (deadline <= 0) {
+                          return ListTile(
+                            leading:
+                            CircleAvatar(
+                              backgroundColor: Colors.red,),
+                            title: Text(snapshot.data[index].data["username"],),
 
-                        );
+                          );
+                        }
+                        else{
+                          return ListTile(
+                            leading:
+                            CircleAvatar(
+                              backgroundColor: Colors.blue,),
+                            title: Text(snapshot.data[index].data["username"],),
+
+                          );
+                        }
+
                       }
                       else{
                         return SizedBox(height: 1.0,);
@@ -76,6 +89,7 @@ class _memlistState extends State<memlist> {
               _dateTime = date;
               print(_dateTime==null ?"nothing has been picked" : _dateTime.toString());
               print(dateToday.toString());
+              deadline=_dateTime.toString().compareTo(dateToday.toString());
               DatabaseMethods(uid: DatabaseMethods.id).updateusertable(DatabaseMethods.team,DatabaseMethods.uname,_dateTime.toString());
             });
           });

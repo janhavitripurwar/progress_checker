@@ -18,9 +18,6 @@ class myTeamList extends StatefulWidget {
 
 class _myTeamListState extends State<myTeamList> {
 
-  DateTime _dateTime;
-  DateTime dateToday = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day) ;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,26 +27,6 @@ class _myTeamListState extends State<myTeamList> {
         backgroundColor: Colors.teal,
       ),
       body: myTeam(),
-      floatingActionButton: FloatingActionButton.extended(
-          onPressed: (){
-            //TODO
-           // setDate();
-            showDatePicker(
-                context: context,
-                initialDate: _dateTime == null? DateTime.now() : _dateTime,
-                firstDate: DateTime(2020),
-                lastDate: DateTime(2023)
-            ).then((date){
-              setState(() {
-                _dateTime = date;
-                print(_dateTime==null ?"nothing has been picked" : _dateTime.toString());
-                print(dateToday.toString());
-              });
-            });
-          },
-          label: Text('Set Deadline'),
-        icon: Icon(Icons.date_range),
-      ),
     );
   }
 }
@@ -62,12 +39,6 @@ class myTeam extends StatelessWidget {
     QuerySnapshot qn = await firestore.collection("Users").getDocuments();
     return qn.documents;
   }
-//
-//  @override
-//  void initState() {
-//   // super.initState();
-//    _data=getPosts();
-//  }
 String t;
   @override
   Widget build(BuildContext context) {

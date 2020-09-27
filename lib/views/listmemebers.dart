@@ -8,6 +8,10 @@ class memlist extends StatefulWidget {
 }
 
 class _memlistState extends State<memlist> {
+
+  DateTime _dateTime;
+  DateTime dateToday = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day) ;
+
   @override
   Future getPosts() async{
     print(DatabaseMethods.teamname);
@@ -58,7 +62,25 @@ class _memlistState extends State<memlist> {
 
               }
             }),
-      )
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: (){
+          showDatePicker(
+              context: context,
+              initialDate: _dateTime == null? DateTime.now() : _dateTime,
+              firstDate: DateTime(2020),
+              lastDate: DateTime(2023)
+          ).then((date){
+            setState(() {
+              _dateTime = date;
+              print(_dateTime==null ?"nothing has been picked" : _dateTime.toString());
+              print(dateToday.toString());
+            });
+          });
+        },
+        label: Text('Set Deadline'),
+        icon: Icon(Icons.date_range),
+      ),
     );
   }
   }

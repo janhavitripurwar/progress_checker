@@ -8,13 +8,19 @@ import 'package:status_checker/views/listmemebers.dart';
 import 'package:status_checker/views/memberslist.dart';
 import 'package:status_checker/widgets/widget.dart';
 import 'package:status_checker/services/database.dart';
+import 'package:intl/intl.dart';
 
 class myTeamList extends StatefulWidget {
+
   @override
   _myTeamListState createState() => _myTeamListState();
 }
 
 class _myTeamListState extends State<myTeamList> {
+
+  DateTime _dateTime;
+  DateTime dateToday = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day) ;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,6 +30,26 @@ class _myTeamListState extends State<myTeamList> {
         backgroundColor: Colors.teal,
       ),
       body: myTeam(),
+      floatingActionButton: FloatingActionButton.extended(
+          onPressed: (){
+            //TODO
+           // setDate();
+            showDatePicker(
+                context: context,
+                initialDate: _dateTime == null? DateTime.now() : _dateTime,
+                firstDate: DateTime(2020),
+                lastDate: DateTime(2023)
+            ).then((date){
+              setState(() {
+                _dateTime = date;
+                print(_dateTime==null ?"nothing has been picked" : _dateTime.toString());
+                print(dateToday.toString());
+              });
+            });
+          },
+          label: Text('Set Deadline'),
+        icon: Icon(Icons.date_range),
+      ),
     );
   }
 }
@@ -96,47 +122,4 @@ String t;
 
 
 
-//class myTeam extends StatefulWidget {
-//  @override
-//  _myTeamState createState() => _myTeamState();
-//}
-//
-//class _myTeamState extends State<myTeam> {
-//
-//
-//  @override
-//  Widget build(BuildContext context) {
-//    return Container(
-//      child: FutureBuilder(
-//          future: _data,
-//          builder: (_,snapshot){
-//        if(snapshot.connectionState == ConnectionState.waiting){
-//          return Center(
-//          child:SpinKitChasingDots(
-//            color: Colors.blue,
-//            size: 50.0,
-//          ),
-//          );
-//      }else {
-//
-//         return ListView.builder(
-//             itemCount: snapshot.data.length,
-//             itemBuilder: (_,index){
-//
-//               return ListTile(
-//                 title: Text(snapshot.data[index].data["team"]),
-//                 onTap: () {
-//                   //navigate to members.dart
-//                   Navigator.pushReplacement(context, MaterialPageRoute(
-//                     builder: (context) => createTeam()
-//                   ));
-//                 }
-//               );
-//
-//      });
-//
-//      }
-//      }),
-//    );
-//  }
-//}
+

@@ -17,7 +17,7 @@ class option extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(DatabaseMethods.id);
+   // print(DatabaseMethods.id);
     return MaterialApp(
       title: _title,
       home: Scaffold(
@@ -54,52 +54,54 @@ class MyStatelessWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print(DatabaseMethods.id);
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          ButtonTheme(
-            minWidth: 400.0,
-            height: 200.0,
-            child: RaisedButton(
-              color: Colors.blue,
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => createTeam()
-                ));
-              },
-              child: Text('Create Team', style: TextStyle(fontSize: 40.0,color: Colors.white,fontWeight: FontWeight.w900),),
-              ),
-          ),
-
-          ButtonTheme(
-            minWidth: 400.0,
-            height: 200.0,
-            child: RaisedButton(
+    return SingleChildScrollView(
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            ButtonTheme(
+              minWidth: 400.0,
+              height: 200.0,
+              child: RaisedButton(
                 color: Colors.blue,
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => joinTeam()
-                ));
-              },
-              child: const Text('Join Team', style: TextStyle(fontSize: 40.0,color: Colors.white,fontWeight: FontWeight.w900)),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => createTeam()
+                  ));
+                },
+                child: Text('Create Team', style: TextStyle(fontSize: 40.0,color: Colors.white,fontWeight: FontWeight.w900),),
+                ),
             ),
-          ),
-          ButtonTheme(
-            minWidth: 400.0,
-            height: 250.0,
-            child: RaisedButton(
-              color: Colors.blue,
-              child: Text('My Teams', style: TextStyle(fontSize: 40.0,color: Colors.white,fontWeight: FontWeight.w900)),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => myTeamList()
-                ));
-              },
 
+            ButtonTheme(
+              minWidth: 400.0,
+              height: 200.0,
+              child: RaisedButton(
+                  color: Colors.blue,
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => joinTeam()
+                  ));
+                },
+                child: const Text('Join Team', style: TextStyle(fontSize: 40.0,color: Colors.white,fontWeight: FontWeight.w900)),
               ),
-          ),
-        ],
+            ),
+            ButtonTheme(
+              minWidth: 400.0,
+              height: 250.0,
+              child: RaisedButton(
+                color: Colors.blue,
+                child: Text('My Teams', style: TextStyle(fontSize: 40.0,color: Colors.white,fontWeight: FontWeight.w900)),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => myTeamList()
+                  ));
+                },
+
+                ),
+            ),
+          ],
+        ),
       ),
     );
   }

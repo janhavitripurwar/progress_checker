@@ -24,7 +24,7 @@ class _myTeamListState extends State<myTeamList> {
       appBar: AppBar(
         title: Text('My Teams'),
         elevation: 5.0,
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.green,
       ),
       body: myTeam(),
     );
@@ -48,8 +48,8 @@ String t;
           builder: (_,snapshot){
             if(snapshot.connectionState == ConnectionState.waiting){
               return Center(
-                child:SpinKitChasingDots(
-                  color: Colors.blue,
+                child:SpinKitFadingCircle(
+                  color: Colors.red,
                   size: 50.0,
                 ),
               );
@@ -62,7 +62,7 @@ String t;
                       return Center(
                         child: ListTile(
                             leading: CircleAvatar(
-                              foregroundColor: Colors.blue,),
+                              foregroundColor: Colors.blueAccent,),
                             title: Text(snapshot.data[index].data["team"],
                             ),
                             onTap: () {

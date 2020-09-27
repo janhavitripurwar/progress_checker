@@ -30,26 +30,45 @@ String _teamname;
   String _username;
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+
+
+
     return Scaffold(
-      appBar: appBarMain(context),
-      body: Center(
+
+
+      appBar:  AppBar(
+        title: Text('Join a Team'),
+        elevation: 5.0,
+        backgroundColor: Colors.green,
+      ),
+      body:
+
+
+      Center(
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
+
               width: 300.0,
               child: Column(
                 children: [
                   TextFormField(
                     controller: usernameTextEditingController,
-                    decoration: textFieldInputDecoration('username'),
-                    style: simpleTextStyle(),
+                    style: TextStyle(color: Colors.black),
+                    decoration:  InputDecoration(hintText: 'Username',fillColor: Colors.white70,filled: true,
+                        enabledBorder:OutlineInputBorder(borderSide: BorderSide(color: Colors.blue ,
+                            width: 2.0)) ),
                   ),
+
+                  SizedBox(height: 20.0,),
                   TextFormField(
                     controller: joinTeamTextEditingController,
-                    decoration: textFieldInputDecoration('Team Name'),
-                    style: simpleTextStyle(),
+                    style: TextStyle(color: Colors.black),
+                    decoration:  InputDecoration(hintText: 'Team Name',fillColor: Colors.white70,filled: true,
+                        enabledBorder:OutlineInputBorder(borderSide: BorderSide(color: Colors.blue ,
+                            width: 2.0)) ),
                   ),
                 ],
               ),
@@ -71,17 +90,17 @@ String _teamname;
               },
               child: const Text(
                 "Join Team",
-                style: TextStyle(fontSize: 30.0),),
+                style: TextStyle(fontSize: 30.0,color: Colors.white),),
               padding: EdgeInsets.fromLTRB(30.0,10.0,30.0,10.0),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0)
               ),
-              color: Colors.pinkAccent,
+              color: Colors.green,
             ),
           ],
         ),
       ),
-      backgroundColor: Color(0xff1F1F1F),
+      backgroundColor: Colors.white,
     );
   }
 }

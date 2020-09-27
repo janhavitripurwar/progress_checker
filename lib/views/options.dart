@@ -23,6 +23,7 @@ class option extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Options'),
+          backgroundColor: Colors.green,
           actions: <Widget>[
             GestureDetector(
 
@@ -64,6 +65,7 @@ class MyStatelessWidget extends StatelessWidget {
               height: 200.0,
               child: RaisedButton(
                 color: Colors.blue,
+                splashColor: Colors.green,
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(
                       builder: (context) => createTeam()
@@ -78,6 +80,7 @@ class MyStatelessWidget extends StatelessWidget {
               height: 200.0,
               child: RaisedButton(
                   color: Colors.blue,
+                splashColor: Colors.green,
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(
                       builder: (context) => joinTeam()
@@ -88,9 +91,10 @@ class MyStatelessWidget extends StatelessWidget {
             ),
             ButtonTheme(
               minWidth: 400.0,
-              height: 250.0,
+              height: 300.0,
               child: RaisedButton(
                 color: Colors.blue,
+                splashColor: Colors.green,
                 child: Text('My Teams', style: TextStyle(fontSize: 40.0,color: Colors.white,fontWeight: FontWeight.w900)),
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(

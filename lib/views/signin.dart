@@ -55,10 +55,11 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal,
+      backgroundColor: Colors.white,
       appBar:
           AppBar(
             title: Text("Sign In"),
+            backgroundColor: Colors.green,
           ),
       body: SingleChildScrollView(
         child: Container(
@@ -104,7 +105,7 @@ class _SignInState extends State<SignIn> {
                   alignment: Alignment.centerRight,
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 16,vertical: 8),
-                    child: Text('Forget Password?',style: simpleTextStyle(),),
+                    child: Text('Forget Password?',style:TextStyle(color: Colors.black)),
                   ),
                 ),
                 SizedBox(height: 8,),
@@ -125,14 +126,14 @@ class _SignInState extends State<SignIn> {
                       ),
                       borderRadius: BorderRadius.circular(30)
                     ),
-                    child: Text('Sign In',style: mediumTextStyle(),),
+                    child: Text('Sign In',style:TextStyle(color: Colors.white,fontSize: 20.0,fontWeight: FontWeight.w600)),
                   ),
                 ),
                 SizedBox(height: 8,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("Don't have an account? ", style: mediumTextStyle()),
+                    Text("Don't have an account? ", style: TextStyle(color: Colors.black)),
                     GestureDetector(
                       onTap: (){
                         widget.toggle();
@@ -140,7 +141,7 @@ class _SignInState extends State<SignIn> {
                       child: Container(
                           padding: EdgeInsets.symmetric(vertical: 8),
                         child: Text("Register now", style: TextStyle(
-                            color : Colors.white,
+                            color : Colors.teal,
                             fontSize: 17,
                           decoration: TextDecoration.underline
                         )),

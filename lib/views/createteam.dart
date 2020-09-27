@@ -51,7 +51,12 @@ class _createTeamState extends State<createTeam> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarMain(context),
+      appBar: AppBar(
+        title: Text('Create Team'),
+        elevation: 10.0,
+        backgroundColor: Colors.green,
+      ),
+
       body: Center(
           child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -62,14 +67,18 @@ class _createTeamState extends State<createTeam> {
                 children: <Widget>[
                   TextFormField(
                     controller: userNameTextEditingController,
-                    decoration: textFieldInputDecoration('username'),
-                    style: simpleTextStyle(),
+                      style: TextStyle(color: Colors.black),
+                      decoration:  InputDecoration(hintText: 'Username',fillColor: Colors.white70,filled: true,
+                          enabledBorder:OutlineInputBorder(borderSide: BorderSide(color: Colors.yellow[800] ,
+                              width: 2.0)) )
                   ),
                   SizedBox(height: 10,),
                   TextFormField(
                     controller: teamNameTextEditingController,
-                    decoration: textFieldInputDecoration('Team Name'),
-                    style: simpleTextStyle(),
+                      style: TextStyle(color: Colors.black),
+                      decoration:  InputDecoration(hintText: 'Team Name',fillColor: Colors.white70,filled: true,
+                          enabledBorder:OutlineInputBorder(borderSide: BorderSide(color: Colors.yellow[800] ,
+                              width: 2.0)) )
                   ),
                 ],
               ),
@@ -84,17 +93,17 @@ class _createTeamState extends State<createTeam> {
               },
               child: const Text(
                 "Create Team",
-                style: TextStyle(fontSize: 30.0),),
+                style: TextStyle(fontSize: 30.0,color: Colors.white),),
               padding: EdgeInsets.fromLTRB(30.0,10.0,30.0,10.0),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0)
               ),
-              color: Colors.pinkAccent,
+              color: Colors.green,
             ),
           ],
         ),
       ),
-      backgroundColor: Color(0xff1F1F1F),
+      backgroundColor: Colors.white,
     );
   }
 }

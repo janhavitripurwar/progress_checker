@@ -26,7 +26,7 @@ class _memlistState extends State<memlist> {
       appBar: AppBar(
         title: Text('Members'),
         elevation: 5.0,
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.green,
       ),
       body: Container(
         child: FutureBuilder(
@@ -35,7 +35,7 @@ class _memlistState extends State<memlist> {
               if(snapshot.connectionState == ConnectionState.waiting){
                 return Center(
                   child:SpinKitChasingDots(
-                    color: Colors.blue,
+                    color: Colors.green,
                     size: 50.0,
                   ),
                 );

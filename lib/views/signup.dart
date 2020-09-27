@@ -53,10 +53,11 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-            backgroundColor: Colors.teal,
+            backgroundColor: Colors.white,
 
       appBar: AppBar(
         title: Text("Register"),
+        backgroundColor: Colors.green,
       ),
       body: isLoading ? Container(
         child: Center(child: CircularProgressIndicator()),
@@ -78,26 +79,34 @@ class _SignUpState extends State<SignUp> {
                           return val.isEmpty || val.length<4 ? "Please provide username length > 4":null;
                         },
                         controller: userNameTextEditingController,
-                        style: simpleTextStyle(),
-                        decoration: textFieldInputDecoration('username'),
+                        style:TextStyle(color: Colors.black),
+                        decoration: InputDecoration(hintText: 'username',fillColor: Colors.white70,filled: true,
+                            enabledBorder:OutlineInputBorder(borderSide: BorderSide(color: Colors.green ,
+                                width: 2.0)) ),
                       ),
+                      SizedBox(height: 20.0,),
                       TextFormField(
                         validator: (val){
                           return RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                               .hasMatch(val)? null : "Please provide valid email id";
                         },
                         controller: emailTextEditingController,
-                        style: simpleTextStyle(),
-                        decoration: textFieldInputDecoration('email'),
+                        style: TextStyle(color: Colors.black),
+                        decoration: InputDecoration(hintText: 'email',fillColor: Colors.white70,filled: true,
+                            enabledBorder:OutlineInputBorder(borderSide: BorderSide(color: Colors.green ,
+                                width: 2.0)) ),
                       ),
+                      SizedBox(height: 20.0,),
                       TextFormField(
                           obscureText: true,
                         validator: (val){
                           return val.length > 6 ? null :"Password length should be greater than 6";
                         },
                           controller: passwordTextEditingController,
-                          style: simpleTextStyle(),
-                          decoration: textFieldInputDecoration('password')
+                          style: TextStyle(color: Colors.black),
+                        decoration: InputDecoration(hintText: 'password',fillColor: Colors.white70,filled: true,
+                            enabledBorder:OutlineInputBorder(borderSide: BorderSide(color: Colors.green ,
+                                width: 2.0)) ),
                       ),
                     ],
                   ),
@@ -128,22 +137,22 @@ class _SignUpState extends State<SignUp> {
                         ),
                         borderRadius: BorderRadius.circular(30)
                     ),
-                    child: Text('Sign Up',style: mediumTextStyle(),),
+                    child: Text('Sign Up',style:TextStyle(color: Colors.white,fontSize: 20.0,fontWeight: FontWeight.w600)),
                   ),
                 ),
                 SizedBox(height: 8,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("Already have an account? ", style: mediumTextStyle()),
+                    Text("Already have an account? "),
                     GestureDetector(
                       onTap: (){
                         widget.toggle();
                       },
                       child: Container(
                           padding: EdgeInsets.symmetric(vertical: 8),
-                        child: Text("Sign In now", style: TextStyle(
-                            color : Colors.white,
+                        child: Text("Sign In", style: TextStyle(
+                            color : Colors.green,
                             fontSize: 17,
                             decoration: TextDecoration.underline
                         )),

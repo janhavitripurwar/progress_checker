@@ -8,6 +8,16 @@ Project Structure:-
 There are two databases one for storing user data and the other to store team data. The user database creates documents using unique IDs and stores the username ,email and the number of teams the user is a part of . The team database create documents for each team and stores the users in the team. In addition to storing the users in the team it also stores the job assigned to the team member.
 
 The following app is to help people in teams to work together and track each others progress. Through the app we give the user a choice to see his teams or to join/create a team. In the backend the userid is added to the particular team in the team database while the team name is added to the users teams in the user database.
+
+# Images In README
+![](screenshots/1.jpeg)
+![](screenshots/2.jpeg)
+![](screenshots/3.jpeg)
+![](screenshots/4.jpeg)
+![](screenshots/5.jpeg)
+![](screenshots/6.jpeg)
+![](screenshots/7.jpeg)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

@@ -1,4 +1,4 @@
-# status_checker
+# progressChecker
 
 The aim of the project is to enable teams and project managers to receive live updates of
 their teams.
